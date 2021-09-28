@@ -1,15 +1,16 @@
 import { useState } from "react";
 
-const Counter = () => {
-  const [count, setCount] = useState(0);
+// initial = 0 -> defaultvalue for initial if there no props for initial
+const Counter = ({initial = 0, step = 1}) => {
+  const [count, setCount] = useState(initial);
 
   const subtract = () => {
-  (count - 1 < 0) ? setCount(0) : setCount(count - 1) 
+  (count - 1 < 0) ? setCount(0) : setCount(count - step) 
   }
 
   return (
     <div className="d-flex align-items-center">
-      <button onClick={() => subtract()} className="btn btn-danger">
+      <button onClick={() => subtract()} className="btn btn-danger" disabled={count === 0}>
         -
       </button>
 
@@ -17,11 +18,13 @@ const Counter = () => {
         {count}
       </span>
 
-      <button onClick={() => setCount(count + 1)} className="btn btn-success">
+      <button onClick={() => setCount(count + step)} className="btn btn-success">
         +
       </button>
     </div>
   )
 }
+
+
 
 export default Counter
