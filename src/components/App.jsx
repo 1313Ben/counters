@@ -1,12 +1,12 @@
 
-import Hello from "./Hello"
+// import Hello from "./Hello"
+import Counter from "./Counter";
 
 const App = () => {
   return (
-    <>
-      <Hello name='Ricardo' age={24}/>
-      <Hello name='Ben' age={30}/> 
-    </>
+    <div className="container mt-3">
+      <Counter />
+    </div>
   )
 }
 
